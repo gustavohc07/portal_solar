@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.com/gustavohc07/portal_solar.svg?branch=master)](https://travis-ci.com/gustavohc07/portal_solar)
+
 # Portal Solar - Dev Test
 
 ## Teste para vagas de Desenvolvimento
