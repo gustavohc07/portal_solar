@@ -3,6 +3,9 @@ language: ruby
 rvm:
   - 2.6.3
 
+services:
+  - postgresql
+
 env:
   global:
     - RAILS_ENV=test
@@ -14,6 +17,7 @@ before_install:
   - gem install bundler
 
 before_script:
+  - psql -c 'create database travis_ci_test;' -U postgres
   - yarn install
   - gem install bundle-audit
 
