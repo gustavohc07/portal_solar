@@ -12,4 +12,15 @@ class PowerGenerator < ApplicationRecord
 
   enum structure_type: { metalico: 0, ceramico: 1, fibrocimento: 2,
                          laje: 3, solo: 4, trapezoidal: 5 }
+
+  # scope :recommendations, -> (price, manufacturer, structure_type) {
+  #   where("price <= ?", price) && where("manufacturer LIKE ?", manufacturer) && where("cast(structure_type as text) LIKE ?", structure_type)
+  # }
+
+  scope :recommendations, ->(price, manufacturer, structure_type) {
+    where("price <= ?", price) if price != nil &&
+    where("manufacturer LIKE ?", manufacturer) if manufacturer != nil &&
+    where("cast(structure_type as text) LIKE ?", structure_type) if structure_type != nil
+  }
 end
+

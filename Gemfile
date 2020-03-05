@@ -8,6 +8,7 @@ gem 'rails', '~> 5.2'
 
 gem 'jbuilder', '~> 2.7'
 gem 'pg', '>= 0.18', '< 2.0'
+gem 'pg_search'
 gem 'puma', '~> 3.11'
 gem 'rails-assets-jquery'
 gem 'roo', '~> 2.8.0'
