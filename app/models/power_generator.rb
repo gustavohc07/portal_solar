@@ -12,4 +12,19 @@ class PowerGenerator < ApplicationRecord
 
   enum structure_type: { metalico: 0, ceramico: 1, fibrocimento: 2,
                          laje: 3, solo: 4, trapezoidal: 5 }
+
+  # TODO, Refatorar Codigo. Acredito que dessa forma esta sobrecarregando o
+  # banco de dados
+
+  scope :recommendations, lambda { |price, manufacturer, structure_type|
+    relation = all
+    relation = relation.where('price <= ?', price) unless price.nil?
+    unless manufacturer.nil?
+      relation = relation.where(manufacturer: manufacturer)
+    end
+    unless structure_type.nil?
+      relation = relation.where(structure_type: structure_type)
+    end
+    relation
+  }
 end

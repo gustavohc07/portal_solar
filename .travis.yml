@@ -6,9 +6,13 @@ rvm:
 services:
   - postgresql
 
+addons:
+  firefox: latest
+
 env:
   global:
     - RAILS_ENV=test
+    - MOZ_HEADLESS=1
 
 cache:
   yarn: true
