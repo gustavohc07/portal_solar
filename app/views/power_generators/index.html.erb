@@ -22,14 +22,25 @@
           <input class="form-control form-control-lg" type="text" placeholder="o que procura?">
         </div>
         <div class="simple-form__btn">
-          <button type="submit" class="btn btn-outline-primary btn-lg">Pesquisar</button>
+          <button type="submit">Pesquisar</button>
         </div>
       </div>
+    <% end %>
 
       <div class="advanced-form" style="display:none;">
-        Entradas do usuário para pesquisar uma coleção de geradores de energia com base nas recomendações fornecidas e melhor custo de frete.
+        <%= form_with url: recommendations_path, local: true, method: 'get' do |f| %>
+          <%= f.label :price, 'Capital Disponivel' %>
+          <%= f.number_field :price %>
+          <%= f.label :manufacturer, 'Fabricante' %>
+          <%= f.select(:manufacturer, PowerGenerator.all.map { |power_gen| power_gen.manufacturer }.uniq) %>
+          <%= f.label :structure_type, 'Estrutura de Fixacao para o Painel Solar' %>
+          <%= f.select(:structure_type, PowerGenerator.structure_types.map { |key, _v| key }) %>
+          <%= f.submit 'Ver Recomendacoes' %>
+        <% end %>
       </div>
-    <% end %>
+    <div class="btn">
+      <%= link_to 'Ver todos', power_generators_path %>
+    </div>
   </div>
 
   <div class="container" >
