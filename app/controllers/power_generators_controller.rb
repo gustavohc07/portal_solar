@@ -4,6 +4,10 @@ class PowerGeneratorsController < ApplicationController
     @power_generators = PowerGenerator.all
   end
 
+  def show
+    @power_generator = PowerGenerator.find(params[:id])
+  end
+
   def recommendations
     @power_generators = PowerGenerator.recommendations(@price, @manufacturer,
                                                        @structure_type)
