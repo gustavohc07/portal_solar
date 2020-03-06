@@ -13,14 +13,18 @@ class PowerGenerator < ApplicationRecord
   enum structure_type: { metalico: 0, ceramico: 1, fibrocimento: 2,
                          laje: 3, solo: 4, trapezoidal: 5 }
 
-  # scope :recommendations, -> (price, manufacturer, structure_type) {
-  #   where("price <= ?", price) && where("manufacturer LIKE ?", manufacturer) && where("cast(structure_type as text) LIKE ?", structure_type)
-  # }
+  # TODO, Refatorar Codigo. Acredito que dessa forma esta sobrecarregando o
+  # banco de dados
 
-  scope :recommendations, ->(price, manufacturer, structure_type) {
-    where("price <= ?", price) if price != nil &&
-    where("manufacturer LIKE ?", manufacturer) if manufacturer != nil &&
-    where("cast(structure_type as text) LIKE ?", structure_type) if structure_type != nil
+  scope :recommendations, lambda { |price, manufacturer, structure_type|
+    relation = all
+    relation = relation.where('price <= ?', price) unless price.nil?
+    unless manufacturer.nil?
+      relation = relation.where(manufacturer: manufacturer)
+    end
+    unless structure_type.nil?
+      relation = relation.where(structure_type: structure_type)
+    end
+    relation
   }
 end
-

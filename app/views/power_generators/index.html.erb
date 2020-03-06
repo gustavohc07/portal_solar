@@ -22,7 +22,7 @@
           <input class="form-control form-control-lg" type="text" placeholder="o que procura?">
         </div>
         <div class="simple-form__btn">
-          <button type="submit" class="btn btn-outline-primary btn-lg">Pesquisar</button>
+          <button type="submit">Pesquisar</button>
         </div>
       </div>
     <% end %>
@@ -34,10 +34,13 @@
           <%= f.label :manufacturer, 'Fabricante' %>
           <%= f.select(:manufacturer, PowerGenerator.all.map { |power_gen| power_gen.manufacturer }.uniq) %>
           <%= f.label :structure_type, 'Estrutura de Fixacao para o Painel Solar' %>
-          <%= f.select(:structure_type, PowerGenerator.structure_types.map { |key, _v| key.to_sym.capitalize }) %>
+          <%= f.select(:structure_type, PowerGenerator.structure_types.map { |key, _v| key }) %>
           <%= f.submit 'Ver Recomendacoes' %>
         <% end %>
       </div>
+    <div class="btn">
+      <%= link_to 'Ver todos', power_generators_path %>
+    </div>
   </div>
 
   <div class="container" >
