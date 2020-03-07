@@ -9,6 +9,7 @@ RSpec.describe Freight, type: :model do
 
     expect(freight).to be_valid
   end
+
   describe 'cost calculation' do
     it 'returns a cost with state and power gen weight' do
       power_gen = create(:power_generator, weight: 95)

@@ -6,6 +6,7 @@ ruby '2.6.3'
 
 gem 'rails', '~> 5.2'
 
+gem 'faraday'
 gem 'jbuilder', '~> 2.7'
 gem 'pg', '>= 0.18', '< 2.0'
 gem 'pg_search'

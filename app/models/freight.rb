@@ -7,9 +7,3 @@ class Freight < ApplicationRecord
     freight&.cost
   end
 end
-
-# Pegar o estado por meio do CEP fornecido
-# Com o estado, pegar o range do estado da tabela 'freight'
-# Com o peso do gerador, encontrar o range do custo do frete
-#
-# Models envolvidos: Freight e PowerGenerator

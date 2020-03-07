@@ -1,5 +1,6 @@
 class PowerGeneratorsController < ApplicationController
   before_action :recommendation_params, only: [:recommendations]
+
   def index
     @power_generators = PowerGenerator.all
   end
