@@ -29,6 +29,14 @@ class PowerGeneratorsController < ApplicationController
     render :show
   end
 
+
+  def simple_search
+    @power_generators = PowerGenerator.simple_search(params[:q]).page(params[:page])
+    if @power_generators.blank?
+      flash[:notice] = 'Nao encontramos correspondentes.'
+    end
+    render :index
+  end
   private
 
   def recommendation_params

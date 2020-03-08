@@ -16,14 +16,12 @@
       </div>
     </div>
 
-    <%= form_tag do %>
       <div class="simple-form">
         <div class="simple-form__input">
-          <input class="form-control form-control-lg" type="text" placeholder="o que procura?">
+            <%= form_with url: simple_search_power_generators_path, local: true, method: :get do %>
+            <%= text_field_tag :q, nil, placeholder: 'O que voce procura?'%>
         </div>
-        <div class="simple-form__btn">
-          <button type="submit">Pesquisar</button>
-        </div>
+          <%= submit_tag 'Procurar' %>
       </div>
     <% end %>
 
@@ -38,12 +36,14 @@
           <%= f.submit 'Ver Recomendacoes' %>
         <% end %>
       </div>
+
+
     <div class="btn">
       <%= link_to 'Ver todos', power_generators_path %>
     </div>
   </div>
   <%= paginate @power_generators %>
-  <div class="container" >
+  <div class="container">
     <% @power_generators.each do |power_generator| %>
       <div class="box card power_generator-card">
         <%= image_tag power_generator.image_url, class: 'power_generator-card__img' %>
@@ -56,3 +56,5 @@
     <% end %>
   </div>
 </div>
+
+

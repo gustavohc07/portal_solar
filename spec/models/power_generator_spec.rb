@@ -94,20 +94,85 @@ RSpec.describe PowerGenerator, type: :model do
     end
   end
 
+  describe 'simple search' do
+    before do
+      @power_gen1 = create(:power_generator, price: 10_000.0,
+                                             manufacturer: 'WEG',
+                                             description: 'Primeiro Gerador',
+                                             name: 'Monofasico' )
+      @power_gen2 = create(:power_generator, price: 20_000.0,
+                                             manufacturer: 'Portal Solar',
+                                             description: 'Segundo Gerador',
+                                             name: 'Bifasico' )
+      @power_gen3 = create(:power_generator, price: 30_000.0,
+                                             manufacturer: 'Tesla',
+                                             description: 'Terceiro Gerador',
+                                             name: 'Hibrido' )
+      @power_gen4 = create(:power_generator, price: 40_000.0,
+                                             manufacturer: 'Q Cells',
+                                             description: 'Quarto Gerador',
+                                             name: 'Cells Mono Perc')
+      @power_gen5 = create(:power_generator, price: 50_000.0,
+                                             manufacturer: 'WEG',
+                                             description: 'Quinto Gerador',
+                                             name: 'Trifasico')
+    end
+
+    context 'when a match is found' do
+      it 'returns a match' do
+        search = PowerGenerator.simple_search('Primeiro')
+
+        expect(search).to include(@power_gen1)
+        expect(search).not_to include(@power_gen2, @power_gen3,
+                                      @power_gen4, @power_gen5)
+      end
+
+      it 'returns more than one match' do
+        search = PowerGenerator.simple_search('WEG')
+
+        expect(search).to include(@power_gen1, @power_gen5)
+        expect(search).not_to include(@power_gen2, @power_gen3,
+                                      @power_gen4)
+      end
+
+      it 'returns a match if integer is inputed' do
+        search = PowerGenerator.simple_search('10000')
+
+        expect(search).to include(@power_gen1)
+        expect(search).not_to include(@power_gen2, @power_gen3,
+                                      @power_gen4, @power_gen5)
+      end
+
+      it 'is not case sensitive' do
+        search = PowerGenerator.simple_search('primeiro')
+
+        expect(search).to include(@power_gen1)
+        expect(search).not_to include(@power_gen2, @power_gen3,
+                                      @power_gen4, @power_gen5)
+      end
+    end
+
+    context 'when a match is not found' do
+      it 'return empty' do
+        search = PowerGenerator.simple_search('Sexto')
+
+        expect(search).to be_empty
+      end
+    end
+  end
+
   describe 'order by price' do
     it 'returns prices in ascending order' do
-      @power_gen1 = create(:power_generator, price: 20_000.0,
+      power_gen1 = create(:power_generator, price: 20_000.0,
                                              manufacturer: 'WEG',
                                              structure_type: :ceramico)
-      @power_gen2 = create(:power_generator, price: 10_000.0,
+      power_gen2 = create(:power_generator, price: 10_000.0,
                                              manufacturer: 'Portal Solar',
                                              structure_type: :metalico)
 
-      visit root_path
-      click_on 'Ordenar por preco'
 
-      expect(PowerGenerator.first).to eq(power_gen2)
-      expect(PowerGenerator.last).to eq(power_gen1)
+      expect(PowerGenerator.order(:price).first).to eq(power_gen2)
+      expect(PowerGenerator.order(:price).last).to eq(power_gen1)
     end
   end
 end
