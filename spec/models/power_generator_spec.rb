@@ -174,4 +174,14 @@ RSpec.describe PowerGenerator, type: :model do
       expect(PowerGenerator.order(:price).last).to eq(power_gen1)
     end
   end
+
+  describe 'cubic weight' do
+    it 'returns cubic weight for a power generator' do
+      power_gen1 = create(:power_generator, height: 1.0,
+                                            width: 1.0,
+                                            lenght: 1.0)
+
+      expect(power_gen1.cubic_weight).to eq(300)
+    end
+  end
 end
