@@ -175,13 +175,20 @@ RSpec.describe PowerGenerator, type: :model do
     end
   end
 
-  describe 'cubic weight' do
+  describe 'weight' do
     it 'returns cubic weight for a power generator' do
-      power_gen1 = create(:power_generator, height: 1.0,
-                                            width: 1.0,
-                                            lenght: 1.0)
+      power_gen = create(:power_generator, height: 1.0,
+                                           width: 1.0,
+                                           lenght: 1.0)
 
-      expect(power_gen1.cubic_weight).to eq(300)
+      expect(power_gen.cubic_weight).to eq(300)
+    end
+
+    it 'returns the minor value between cubic weight and weight' do
+      power_gen = create(:power_generator, weight: 110,
+                                           cubic_weight: 450)
+
+      expect(power_gen.minor_weight).to eq 110.0
     end
   end
 end

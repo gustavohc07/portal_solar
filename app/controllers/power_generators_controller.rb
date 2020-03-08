@@ -24,9 +24,10 @@ class PowerGeneratorsController < ApplicationController
 
   def freight_cost
     @power_generator = PowerGenerator.find(params[:id])
+    minor_weight = [@power_generator.weight, @power_generator.cubic_weight].min
     @address = AddressFinder.new(params[:cep]).address
     unless @address[:erro] == true
-      @cost = Freight.cost_calculate(@power_generator.weight, @address[:uf])
+      @cost = Freight.cost_calculate(minor_weight, @address[:uf])
     end
     render :show
   end
