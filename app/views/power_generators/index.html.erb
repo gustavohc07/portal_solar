@@ -28,7 +28,7 @@
     <% end %>
 
       <div class="advanced-form" style="display:none;">
-        <%= form_with url: recommendations_path, local: true, method: 'get' do |f| %>
+        <%= form_with url: recommendations_power_generators_path, local: true, method: 'get' do |f| %>
           <%= f.label :price, 'Capital Disponivel' %>
           <%= f.number_field :price %>
           <%= f.label :manufacturer, 'Fabricante' %>

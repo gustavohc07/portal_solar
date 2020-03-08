@@ -30,11 +30,13 @@
          <dd><%= pluralize(@power_generator.width, 'metro', 'metros') %></dd>
          <dt><strong>Comprimento:</strong></dt>
          <dd><%= pluralize(@power_generator.lenght, 'metro', 'metros') %></dd>
-         <dt><strong></strong></dt>
+         <dt><strong>Peso</strong></dt>
          <dd><%= pluralize(@power_generator.weight, 'kg', 'kgs') %></dd>
          <dt><strong>Estrutura de fixação para o Painel Solar:</strong></dt>
          <dd><%= @power_generator.structure_type.capitalize %></dd>
        </dl>
+      <%= render partial: 'freight_cost', locals: { address: @address} %>
+
      </div>
    </div>
   </div>

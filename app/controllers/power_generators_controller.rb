@@ -20,6 +20,15 @@ class PowerGeneratorsController < ApplicationController
     render :index
   end
 
+  def freight_cost
+    @power_generator = PowerGenerator.find(params[:id])
+    @address = AddressFinder.new(params[:cep]).address
+    unless @address[:erro] == true
+      @cost = Freight.cost_calculate(@power_generator.weight, @address[:uf])
+    end
+    render :show
+  end
+
   private
 
   def recommendation_params

@@ -5,11 +5,23 @@ class AddressFinder
     @cep = cep
   end
 
-  def get_address
+  def address
     response = Faraday.get "https://viacep.com.br/ws/#{@cep}/json/"
+    return status_400(response) if response.status == 400
+
+    status_200(response)
+  end
+
+  def status_200(response)
+    return unless response.status == 200
+
     json = JSON.parse(response.body, symbolize_names: true)
-    return 'CEP incorreto' if json[:erro] == true
+    return { message: 'CEP invalido.' } if json[:erro] == true
 
     json
+  end
+
+  def status_400(response)
+    { message: 'CEP invalido.' } if response.status == 400
   end
 end
