@@ -31,4 +31,12 @@ class PowerGenerator < ApplicationRecord
     end
     relation
   }
+
+  def cubic_weight
+    height * lenght * width * 300
+  end
+
+  def minor_weight
+    [weight, cubic_weight].min
+  end
 end

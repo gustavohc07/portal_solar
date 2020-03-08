@@ -60,5 +60,22 @@ RSpec.describe Freight, type: :model do
       freight = Freight.cost_calculate(105, nil)
       expect(freight).to be_nil
     end
+
+    it 'uses the bottom value of weight' do
+      power_gen = create(:power_generator, weight: 500,
+                                           cubic_weight: 450)
+
+      create(:freight, state: 'MG',
+                       weight_max: 550,
+                       weight_min: 501,
+                       cost: 88.62)
+      create(:freight, state: 'MG',
+                       weight_max: 450,
+                       weight_min: 401,
+                       cost: 67.62)
+
+      freight = Freight.cost_calculate(power_gen.minor_weight, 'MG')
+      expect(freight).to eq 67.62
+    end
   end
 end
