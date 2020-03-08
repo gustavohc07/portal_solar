@@ -1,0 +1,10 @@
+<%= form_with url: freight_cost_power_generator_path, local: true, method: :get do %>
+  <%= text_field_tag :cep, nil, maxlength: 8, placeholder: 'CEP' %> <br> <br>
+  <%= submit_tag 'Calcular Frete' %>
+<% end %>
+
+<% if @cost != nil %>
+  <p><strong>Estado: </strong><%= address[:uf] %></p>
+  <p><strong>Custo do frete: </strong><%= number_to_currency(@cost, unit: "R$ ", precision: 2, :separator => ",", :delimiter => ".") %></p>
+<% end %>
+<p><%= address[:message] if address != nil %></p>

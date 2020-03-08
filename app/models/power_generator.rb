@@ -18,11 +18,11 @@ class PowerGenerator < ApplicationRecord
 
   scope :recommendations, lambda { |price, manufacturer, structure_type|
     relation = all
-    relation = relation.where('price <= ?', price) unless price.nil?
-    unless manufacturer.nil?
+    relation = relation.where('price <= ?', price) if price.present?
+    if manufacturer.present?
       relation = relation.where(manufacturer: manufacturer)
     end
-    unless structure_type.nil?
+    if structure_type.present?
       relation = relation.where(structure_type: structure_type)
     end
     relation
