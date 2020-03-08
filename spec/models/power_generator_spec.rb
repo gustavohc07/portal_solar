@@ -1,5 +1,5 @@
 require 'rails_helper'
-
+# TODO, validations
 RSpec.describe PowerGenerator, type: :model do
   it 'is valid with name, description, image, manufacturer, price and kwp' do
     power_gen = FactoryBot.build(:power_generator, name: 'Trifasico',

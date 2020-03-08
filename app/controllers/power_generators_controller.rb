@@ -1,7 +1,12 @@
 class PowerGeneratorsController < ApplicationController
   before_action :recommendation_params, only: [:recommendations]
+
   def index
     @power_generators = PowerGenerator.all
+  end
+
+  def show
+    @power_generator = PowerGenerator.find(params[:id])
   end
 
   def recommendations
@@ -13,6 +18,15 @@ class PowerGeneratorsController < ApplicationController
     end
     flash[:notice] = 'Veja sua lista de recomendacoes'
     render :index
+  end
+
+  def freight_cost
+    @power_generator = PowerGenerator.find(params[:id])
+    @address = AddressFinder.new(params[:cep]).address
+    unless @address[:erro] == true
+      @cost = Freight.cost_calculate(@power_generator.weight, @address[:uf])
+    end
+    render :show
   end
 
   private

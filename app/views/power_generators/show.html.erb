@@ -1,0 +1,43 @@
+<div>
+  <div class="header">
+    <div class="logo"><%= image_tag 'ps_logo.png' %></div>
+    <div class="header__title">Geradores de Energia</div>
+  </div>
+
+  <div class="searcher gradient", style="padding: 1rem 0 1rem 1rem">
+    <%= link_to 'Ver todos', power_generators_path %>
+  </div>
+
+  <h1 class="power_generators-list"><%= @power_generator.name.upcase %></h1>
+  <div class="container">
+   <div class="row">
+     <div class="column">
+        <%= image_tag @power_generator.image_url %>
+     </div>
+     <div class="column">
+       <dl>
+         <dt><strong>Preço:</strong></dt>
+         <dd><%= number_to_currency(@power_generator.price, unit: "R$ ", precision: 2, :separator => ",", :delimiter => ".") %></dd>
+         <dt><strong>Descrição:</strong></dt>
+         <dd><%= @power_generator.description %></dd>
+         <dt><strong>Fabricante:</strong></dt>
+         <dd><%= @power_generator.manufacturer %></dd>
+         <dt><strong>Kwp:</strong></dt>
+         <dd><%= @power_generator.kwp %> kwp</dd>
+         <dt><strong>Altura:</strong></dt>
+         <dd><%= pluralize(@power_generator.height, 'metro', 'metros') %> </dd>
+         <dt><strong>Largura:</strong></dt>
+         <dd><%= pluralize(@power_generator.width, 'metro', 'metros') %></dd>
+         <dt><strong>Comprimento:</strong></dt>
+         <dd><%= pluralize(@power_generator.lenght, 'metro', 'metros') %></dd>
+         <dt><strong>Peso</strong></dt>
+         <dd><%= pluralize(@power_generator.weight, 'kg', 'kgs') %></dd>
+         <dt><strong>Estrutura de fixação para o Painel Solar:</strong></dt>
+         <dd><%= @power_generator.structure_type.capitalize %></dd>
+       </dl>
+      <%= render partial: 'freight_cost', locals: { address: @address} %>
+
+     </div>
+   </div>
+  </div>
+</div>
