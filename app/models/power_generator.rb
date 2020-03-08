@@ -14,8 +14,8 @@ class PowerGenerator < ApplicationRecord
   enum structure_type: { metalico: 0, ceramico: 1, fibrocimento: 2,
                          laje: 3, solo: 4, trapezoidal: 5 }
 
-  pg_search_scope :simple_search, against: [:name, :description, :manufacturer,
-                                                  :price]
+  pg_search_scope :simple_search, against: %i[name description
+                                              manufacturer price]
 
   # TODO, Refatorar Codigo. Acredito que dessa forma esta sobrecarregando o
   # banco de dados
@@ -31,6 +31,4 @@ class PowerGenerator < ApplicationRecord
     end
     relation
   }
-
-
 end

@@ -99,15 +99,15 @@ RSpec.describe PowerGenerator, type: :model do
       @power_gen1 = create(:power_generator, price: 10_000.0,
                                              manufacturer: 'WEG',
                                              description: 'Primeiro Gerador',
-                                             name: 'Monofasico' )
+                                             name: 'Monofasico')
       @power_gen2 = create(:power_generator, price: 20_000.0,
                                              manufacturer: 'Portal Solar',
                                              description: 'Segundo Gerador',
-                                             name: 'Bifasico' )
+                                             name: 'Bifasico')
       @power_gen3 = create(:power_generator, price: 30_000.0,
                                              manufacturer: 'Tesla',
                                              description: 'Terceiro Gerador',
-                                             name: 'Hibrido' )
+                                             name: 'Hibrido')
       @power_gen4 = create(:power_generator, price: 40_000.0,
                                              manufacturer: 'Q Cells',
                                              description: 'Quarto Gerador',
@@ -164,12 +164,11 @@ RSpec.describe PowerGenerator, type: :model do
   describe 'order by price' do
     it 'returns prices in ascending order' do
       power_gen1 = create(:power_generator, price: 20_000.0,
-                                             manufacturer: 'WEG',
-                                             structure_type: :ceramico)
+                                            manufacturer: 'WEG',
+                                            structure_type: :ceramico)
       power_gen2 = create(:power_generator, price: 10_000.0,
-                                             manufacturer: 'Portal Solar',
-                                             structure_type: :metalico)
-
+                                            manufacturer: 'Portal Solar',
+                                            structure_type: :metalico)
 
       expect(PowerGenerator.order(:price).first).to eq(power_gen2)
       expect(PowerGenerator.order(:price).last).to eq(power_gen1)
