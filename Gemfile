@@ -8,6 +8,7 @@ gem 'rails', '~> 5.2'
 
 gem 'faraday'
 gem 'jbuilder', '~> 2.7'
+gem 'kaminari'
 gem 'pg', '>= 0.18', '< 2.0'
 gem 'pg_search'
 gem 'puma', '~> 3.11'

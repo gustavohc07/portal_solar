@@ -4,6 +4,10 @@
     <div class="header__title">Geradores de Energia</div>
   </div>
 
+  <div>
+    <%= link_to 'Ver todos', power_generators_path %>
+  </div>
+
   <div class="searcher gradient">
     <div class="searcher__radio">
       <div class="form-check">
@@ -16,34 +20,38 @@
       </div>
     </div>
 
-    <%= form_tag do %>
-      <div class="simple-form">
-        <div class="simple-form__input">
-          <input class="form-control form-control-lg" type="text" placeholder="o que procura?">
-        </div>
-        <div class="simple-form__btn">
-          <button type="submit">Pesquisar</button>
-        </div>
+    <div class="simple-form">
+      <div class="simple-form__input">
+        <%= form_with url: simple_search_power_generators_path, local: true, method: :get do %>
+        <%= text_field_tag :q, nil, placeholder: 'O que voce procura?' %>
       </div>
-    <% end %>
-
-      <div class="advanced-form" style="display:none;">
-        <%= form_with url: recommendations_power_generators_path, local: true, method: 'get' do |f| %>
-          <%= f.label :price, 'Capital Disponivel' %>
-          <%= f.number_field :price %>
-          <%= f.label :manufacturer, 'Fabricante' %>
-          <%= f.select(:manufacturer, PowerGenerator.all.map { |power_gen| power_gen.manufacturer }.uniq) %>
-          <%= f.label :structure_type, 'Estrutura de Fixacao para o Painel Solar' %>
-          <%= f.select(:structure_type, PowerGenerator.structure_types.map { |key, _v| key }) %>
-          <%= f.submit 'Ver Recomendacoes' %>
+        <%= submit_tag 'Procurar' %>
         <% end %>
-      </div>
-    <div class="btn">
-      <%= link_to 'Ver todos', power_generators_path %>
+    </div>
+
+    <div class="advanced-form" style="display:none;">
+      <%= form_with url: recommendations_power_generators_path, local: true, method: 'get' do |f| %>
+        <%= f.label :price, 'Capital Disponivel' %>
+        <%= f.number_field :price %>
+        <%= f.label :manufacturer, 'Fabricante' %>
+        <%= f.select(:manufacturer, PowerGenerator.all.map { |power_gen| power_gen.manufacturer }.uniq) %>
+        <%= f.label :structure_type, 'Estrutura de Fixacao para o Painel Solar' %>
+        <%= f.select(:structure_type, PowerGenerator.structure_types.map { |key, _v| key }) %>
+        <%= f.submit 'Ver Recomendacoes' %>
+      <% end %>
+    </div>
+
+    <div style="margin-left: 1rem">
+      <%= form_with url: power_generators_path, local:true, method: 'get' do %>
+        <%= select_tag(:options, options_for_select([['Selecionar', nil], ['Preco', :price], ['KWP', :kwp]])) %>
+        <%= submit_tag 'Filtrar' %>
+      <% end %>
     </div>
   </div>
 
-  <div class="container" >
+
+  <%= paginate @power_generators %>
+  <div class="container">
     <% @power_generators.each do |power_generator| %>
       <div class="box card power_generator-card">
         <%= image_tag power_generator.image_url, class: 'power_generator-card__img' %>
@@ -56,3 +64,5 @@
     <% end %>
   </div>
 </div>
+
+
