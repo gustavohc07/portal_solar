@@ -11,5 +11,6 @@ FactoryBot.define do
     lenght { 1.5 }
     weight { 200 }
     kwp { 17 }
+    cubic_weight { 450 }
   end
 end
