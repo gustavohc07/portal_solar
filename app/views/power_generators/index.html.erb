@@ -42,7 +42,7 @@
       <%= link_to 'Ver todos', power_generators_path %>
     </div>
   </div>
-
+  <%= paginate @power_generators %>
   <div class="container" >
     <% @power_generators.each do |power_generator| %>
       <div class="box card power_generator-card">

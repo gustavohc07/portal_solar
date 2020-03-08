@@ -2,7 +2,7 @@ class PowerGeneratorsController < ApplicationController
   before_action :recommendation_params, only: [:recommendations]
 
   def index
-    @power_generators = PowerGenerator.all
+    @power_generators = PowerGenerator.all.page(params[:page])
   end
 
   def show
@@ -11,7 +11,7 @@ class PowerGeneratorsController < ApplicationController
 
   def recommendations
     @power_generators = PowerGenerator.recommendations(@price, @manufacturer,
-                                                       @structure_type)
+                                                       @structure_type).page(params[:page])
     if @power_generators.empty?
       flash[:notice] = 'Infelizmente nao ha correspondentes.'
       return render :index

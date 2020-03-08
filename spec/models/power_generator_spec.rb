@@ -93,4 +93,21 @@ RSpec.describe PowerGenerator, type: :model do
       end
     end
   end
+
+  describe 'order by price' do
+    it 'returns prices in ascending order' do
+      @power_gen1 = create(:power_generator, price: 20_000.0,
+                                             manufacturer: 'WEG',
+                                             structure_type: :ceramico)
+      @power_gen2 = create(:power_generator, price: 10_000.0,
+                                             manufacturer: 'Portal Solar',
+                                             structure_type: :metalico)
+
+      visit root_path
+      click_on 'Ordenar por preco'
+
+      expect(PowerGenerator.first).to eq(power_gen2)
+      expect(PowerGenerator.last).to eq(power_gen1)
+    end
+  end
 end
