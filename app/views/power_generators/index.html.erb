@@ -23,7 +23,7 @@
     <div class="simple-form">
       <div class="simple-form__input">
         <%= form_with url: simple_search_power_generators_path, local: true, method: :get do %>
-        <%= text_field_tag :q, nil, placeholder: 'O que voce procura?' %>
+        <%= text_field_tag :q, nil, placeholder: 'O que você procura?' %>
       </div>
         <%= submit_tag 'Procurar' %>
         <% end %>
@@ -31,19 +31,19 @@
 
     <div class="advanced-form" style="display:none;">
       <%= form_with url: recommendations_power_generators_path, local: true, method: 'get' do |f| %>
-        <%= f.label :price, 'Capital Disponivel' %>
+        <%= f.label :price, 'Capital Disponível' %>
         <%= f.number_field :price %>
         <%= f.label :manufacturer, 'Fabricante' %>
         <%= f.select(:manufacturer, PowerGenerator.all.map { |power_gen| power_gen.manufacturer }.uniq) %>
-        <%= f.label :structure_type, 'Estrutura de Fixacao para o Painel Solar' %>
+        <%= f.label :structure_type, 'Estrutura de Fixação para o Painel Solar' %>
         <%= f.select(:structure_type, PowerGenerator.structure_types.map { |key, _v| key }) %>
-        <%= f.submit 'Ver Recomendacoes' %>
+        <%= f.submit 'Ver Recomendações' %>
       <% end %>
     </div>
 
     <div style="margin-left: 1rem">
       <%= form_with url: power_generators_path, local:true, method: 'get' do %>
-        <%= select_tag(:options, options_for_select([['Selecionar', nil], ['Preco', :price], ['KWP', :kwp]])) %>
+        <%= select_tag(:options, options_for_select([['Selecionar', nil], ['Preço', :price], ['KWP', :kwp]])) %>
         <%= submit_tag 'Filtrar' %>
       <% end %>
     </div>
