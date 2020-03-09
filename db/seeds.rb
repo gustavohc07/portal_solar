@@ -57,7 +57,7 @@ PowerGenerator.create!(
                 PID Free
                 Garantia de 10 anos para o produto e Garantia linear de 25 anos
                 Sistemas comerciais ou residenciais on-grid e off-grid',
-  image_url: 'https://marketplace-img-production.s3.amazonaws.com/products/107162/large/20190808-1-1ap5e43.?1565248087',
+  image_url: 'https://go.aws/2Tq8svj',
   manufacturer: 'BYD',
   price: 12223.73,
   kwp: 2.68,
@@ -78,7 +78,7 @@ PowerGenerator.create!(
                 Eficiência =18,8%
                 Tolerância de potências +5W
                 Desempenho mínimo sob condições de teste padrão STC (1000 W/m², 25 °C, espectro AM 1,5 G)',
-  image_url: 'https://marketplace-img-production.s3.amazonaws.com/products/13500/large/20190103-225-1sblgyr.?1546504464',
+  image_url: 'https://go.aws/2Tq8svj',
   manufacturer: 'Q CELLS',
   price: 13000.35,
   kwp: 2.68,
@@ -156,7 +156,7 @@ PowerGenerator.create!(
                 Eficiência =18,8%
                 Tolerância de potências +5W
                 Desempenho mínimo sob condições de teste padrão STC (1000 W/m², 25 °C, espectro AM 1,5 G)',
-  image_url: 'https://marketplace-img-production.s3.amazonaws.com/products/25987/large/20190508-1-ihrsfp.?1557295808',
+  image_url: 'https://go.aws/2Tq8svj',
   manufacturer: 'Q CELLS',
   price: 60400.90,
   kwp: 16.43,
@@ -177,7 +177,7 @@ PowerGenerator.create!(
                 Eficiência =18,8%
                 Tolerância de potências +5W
                 Desempenho mínimo sob condições de teste padrão STC (1000 W/m², 25 °C, espectro AM 1,5 G)',
-  image_url: 'https://marketplace-img-production.s3.amazonaws.com/products/28753/large/20190703-1-uyzr6.?1562196316',
+  image_url: 'https://go.aws/2Tq8svj',
   manufacturer: 'Q CELLS',
   price: 73322.30,
   kwp: 19.20,
@@ -211,7 +211,7 @@ PowerGenerator.create!(
                 MONOCRISTALINO Q.ANTUM Q.PEAK 365W, com tecnologia alemã Q CELLS e apresentam o novo Q.ANTUM Q.PEAK 365W MONOCRISTALINO MONO PEAK 1500V
                 que possui diferenciais incontestáveis de qualidade e performance para a geração de eletricidade a um custo reduzido com excelente confiabilidade,
                 segurança operacional, CONSIDERADO O MAIS POTENTE DA SUA CATEGORIA NO MERCADO MUNDIAL.',
-  image_url: 'https://marketplace-img-production.s3.amazonaws.com/products/107414/large/20190817-1-1clo0xp.?1566023097',
+  image_url: 'https://go.aws/2Tq8svj',
   manufacturer: 'Q CELLS',
   price: 150970.90,
   kwp: 41.61,
@@ -228,7 +228,7 @@ PowerGenerator.create!(
                 PID Free
                 Garantia de 10 anos para o produto e Garantia linear de 25 anos
                 Sistemas comerciais ou residenciais on-grid e off-grid',
-  image_url: 'https://marketplace-img-production.s3.amazonaws.com/products/107192/large/20190808-1-1fhshj2.?1565248186',
+  image_url: 'https://go.aws/2Tq8svj',
   manufacturer: 'BYD',
   price: 105766.27,
   kwp: 33.50,
@@ -245,7 +245,7 @@ PowerGenerator.create!(
                 PID Free
                 Garantia de 10 anos para o produto e Garantia linear de 25 anos
                 Sistemas comerciais ou residenciais on-grid e off-grid',
-  image_url: 'https://marketplace-img-production.s3.amazonaws.com/products/19092/large/20190212-1-itraqe.?1549948011',
+  image_url: 'https://go.aws/2Tq8svj',
   manufacturer: 'Q CELLS',
   price: 143767.09,
   kwp: 39.42,
@@ -262,7 +262,7 @@ PowerGenerator.create!(
                 FOTOVOLTAICO MONOCRISTALINO Q.ANTUM Q.PEAK 365W, com tecnologia alemã Q CELLS e apresentam o novo Q.ANTUM Q.PEAK 365W MONOCRISTALINO
                 MONO PEAK 1500V que possui diferenciais incontestáveis de qualidade e performance para a geração de eletricidade a um custo reduzido com
                 excelente confiabilidade, segurança operacional, CONSIDERADO O MAIS POTENTE DA SUA CATEGORIA NO MERCADO MUNDIAL.',
-  image_url: 'https://marketplace-img-production.s3.amazonaws.com/products/19279/large/20190213-1-1rbcof2.?1550033202',
+  image_url: 'https://go.aws/2Tq8svj',
   manufacturer: 'Q CELLS',
   price: 147502.90,
   kwp: 43.80,
@@ -287,7 +287,7 @@ PowerGenerator.create!(
                 Ligação CA via conector
                 Display para Smartfone, Tablet e Laptop
                 Interface: WLAN, Speedwire / Webconnect',
-  image_url: 'https://marketplace-img-production.s3.amazonaws.com/products/28645/large/20190702-1-l7flvs.?1562049012',
+  image_url: 'https://go.aws/2Tq8svj',
   manufacturer: 'Q CELLS',
   price: 31478.00,
   kwp: 8.03,
@@ -321,7 +321,7 @@ PowerGenerator.create!(
                 144 meia células fotovoltaicas monocristalinas
                 Baixos coeficientes térmicos para maior produção de energia em alta temperatura de operação
                 Garantia de 10 anos para o produto e Garantia linear de 25 anos ',
-  image_url: 'https://marketplace-img-production.s3.amazonaws.com/products/28805/large/20190703-1-19o5xbt.?1562197086',
+  image_url: 'https://go.aws/2Tq8svj',
   manufacturer: 'Trina Solar',
   price: 16347.00,
   kwp: 3.20,
