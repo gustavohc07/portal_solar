@@ -49,7 +49,7 @@ describe 'User view freight cost to his state' do
     fill_in 'CEP', with: '99999999'
     click_on 'Calcular Frete'
 
-    expect(page).to have_content('CEP invalido.')
+    expect(page).to have_content('CEP inválido.')
   end
 
   scenario 'and do not enter a CEP at all' do
@@ -73,6 +73,6 @@ describe 'User view freight cost to his state' do
     click_on 'TRIFASICO'
     click_on 'Calcular Frete'
 
-    expect(page).to have_content('CEP invalido.')
+    expect(page).to have_content('CEP inválido.')
   end
 end

@@ -15,10 +15,10 @@ class PowerGeneratorsController < ApplicationController
                                                        @structure_type)
                                       .page(params[:page])
     if @power_generators.empty?
-      flash[:notice] = 'Infelizmente nao ha correspondentes.'
+      flash[:notice] = 'Infelizmente não há correspondentes.'
       return render :index
     end
-    flash[:notice] = 'Veja sua lista de recomendacoes'
+    flash[:notice] = 'Veja sua lista de recomendações'
     render :index
   end
 
@@ -36,7 +36,7 @@ class PowerGeneratorsController < ApplicationController
     @power_generators = PowerGenerator.simple_search(params[:q])
                                       .page(params[:page])
     if @power_generators.blank?
-      flash[:notice] = 'Nao encontramos correspondentes.'
+      flash[:notice] = 'Não encontramos correspondentes.'
     end
     render :index
   end

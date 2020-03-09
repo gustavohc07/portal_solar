@@ -28,6 +28,6 @@ describe 'User uses simple search' do
     fill_in :q, with: 'Segundo'
     click_on 'Procurar'
 
-    expect(page).to have_content('Nao encontramos correspondentes.')
+    expect(page).to have_content('Não encontramos correspondentes.')
   end
 end

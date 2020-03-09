@@ -15,10 +15,10 @@ describe 'User receive power generator recommendation' do
       visit root_path
 
       choose 'Pesquisa Avançada'
-      fill_in 'Capital Disponivel', with: 50_000.0
+      fill_in 'Capital Disponível', with: 50_000.0
       select 'WEG', from: 'Fabricante'
-      select 'ceramico', from: 'Estrutura de Fixacao para o Painel Solar'
-      click_on 'Ver Recomendacoes'
+      select 'ceramico', from: 'Estrutura de Fixação para o Painel Solar'
+      click_on 'Ver Recomendações'
 
       expect(page).to have_content('TRIFASICO')
       expect(page).to have_content('R$ 30.000,00')
@@ -40,8 +40,8 @@ describe 'User receive power generator recommendation' do
 
       choose 'Pesquisa Avançada'
       select 'WEG', from: 'Fabricante'
-      select 'ceramico', from: 'Estrutura de Fixacao para o Painel Solar'
-      click_on 'Ver Recomendacoes'
+      select 'ceramico', from: 'Estrutura de Fixação para o Painel Solar'
+      click_on 'Ver Recomendações'
 
       expect(page).to have_content('TRIFASICO')
       expect(page).to have_content('R$ 30.000,00')
@@ -61,8 +61,8 @@ describe 'User receive power generator recommendation' do
       visit root_path
 
       choose 'Pesquisa Avançada'
-      select 'ceramico', from: 'Estrutura de Fixacao para o Painel Solar'
-      click_on 'Ver Recomendacoes'
+      select 'ceramico', from: 'Estrutura de Fixação para o Painel Solar'
+      click_on 'Ver Recomendações'
 
       expect(page).to have_content('TRIFASICO')
       expect(page).to have_content('R$ 30.000,00')
@@ -83,10 +83,10 @@ describe 'User receive power generator recommendation' do
       visit root_path
 
       choose 'Pesquisa Avançada'
-      fill_in 'Capital Disponivel', with: 50_000.0
+      fill_in 'Capital Disponível', with: 50_000.0
       select 'WEG', from: 'Fabricante'
-      select 'ceramico', from: 'Estrutura de Fixacao para o Painel Solar'
-      click_on 'Ver Recomendacoes'
+      select 'ceramico', from: 'Estrutura de Fixação para o Painel Solar'
+      click_on 'Ver Recomendações'
       click_on 'Ver todos'
 
       expect(page).to have_content('TRIFASICO')
@@ -108,12 +108,12 @@ describe 'User receive power generator recommendation' do
       visit root_path
 
       choose 'Pesquisa Avançada'
-      fill_in 'Capital Disponivel', with: 10_000.0
+      fill_in 'Capital Disponível', with: 10_000.0
       select 'WEG', from: 'Fabricante'
-      select 'ceramico', from: 'Estrutura de Fixacao para o Painel Solar'
-      click_on 'Ver Recomendacoes'
+      select 'ceramico', from: 'Estrutura de Fixação para o Painel Solar'
+      click_on 'Ver Recomendações'
 
-      expect(page).to have_content('Infelizmente nao ha correspondentes.')
+      expect(page).to have_content('Infelizmente não há correspondentes.')
     end
   end
 end
