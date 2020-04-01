@@ -45,10 +45,10 @@ development:
   check_yarn_integrity: true
   dev_server:
     https: false
-    host: localhost
+    host: webpacker
     port: 3035
     public: localhost:3035
-    hmr: false
+    hmr: true
     inline: true
     overlay: true
     compress: true
